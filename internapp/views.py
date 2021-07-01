@@ -28,8 +28,8 @@ class CapsViewSet(mongoviewsets.ModelViewSet):
         print("Here")
         comments = []
         if cid == "" or cid is None:
-            comments = Capb.objects.filter(capbid="accelerationSensor")
+            comments = Capb.objects.all()
         else:
-            comments = Capb.objects.filter(capbid="airConditionerMode")
+            comments = Capb.objects.filter(capbid=cid)
         return comments
    
