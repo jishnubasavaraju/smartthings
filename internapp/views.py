@@ -20,4 +20,16 @@ class CapsSerializer(mongoserializers.DocumentSerializer):
 
 class CapsViewSet(mongoviewsets.ModelViewSet):
     serializer_class = CapsSerializer
-    queryset = Capb.objects.all()
+    lookup_url_kwarg = "capbid"
+    
+    def get_queryset(self):
+        cid = self.kwargs.get(self.lookup_url_kwarg)
+        print(cid)
+        print("Here")
+        comments = []
+        if cid == "" or cid is None:
+            comments = Capb.objects.filter(capbid="accelerationSensor")
+        else:
+            comments = Capb.objects.filter(capbid="airConditionerMode")
+        return comments
+   
