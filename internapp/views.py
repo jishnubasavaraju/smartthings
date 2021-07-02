@@ -30,6 +30,6 @@ class CapsViewSet(mongoviewsets.ModelViewSet):
         if cid == "" or cid is None:
             comments = Capb.objects.all()
         else:
-            comments = Capb.objects.filter(capbid=cid)
+            comments = Capb.objects.all()
         return comments
    
