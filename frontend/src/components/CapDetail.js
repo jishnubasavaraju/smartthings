@@ -198,7 +198,7 @@ export default class CapDetail extends Component {
                   labelPlacement="bottom"
                 />
                 <FormControlLabel
-                  value="Depreciated"
+                  value="depreciated"
                   control={<Radio color="default" />}
                   label="Deprecated"
                   labelPlacement="bottom"
@@ -225,11 +225,6 @@ export default class CapDetail extends Component {
             </FormControl>
           </Grid>
           <Grid item item xs={12} align="center">
-            <Editor>
-              value = {
-                this.state.obj
-              }
-            </Editor>
             <FormControl>
               <TextField
                 multiline

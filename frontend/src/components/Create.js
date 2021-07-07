@@ -187,7 +187,7 @@ export default class Create extends Component {
                   labelPlacement="bottom"
                 />
                 <FormControlLabel
-                  value="Depreciated"
+                  value="depreciated"
                   control={<Radio color="default" />}
                   label="Deprecated"
                   labelPlacement="bottom"

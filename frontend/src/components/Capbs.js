@@ -51,6 +51,18 @@ export default class Capbs extends Component {
                                 </Button>
           ),
         },
+        {
+          field: 'delete',
+          headerName: 'Delete',
+          sortable: false,
+          width: 160,
+          renderCell: (params) =>
+          (
+            <Button color="default" value = {params.id} variant="contained" onClick={() => this.handleDelete(params.id)} >
+                                    Delete
+                                </Button>
+          ),
+        },
       ]
     };
     this.getRoomDetails();
@@ -58,7 +70,18 @@ export default class Capbs extends Component {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       };
-  } 
+    this.handleDelete = this.handleDelete.bind(this);
+  }
+  
+  handleDelete(val){
+    const requestOptions = {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+    };
+    fetch("/internapp/"+val+"/", requestOptions)
+    alert(val+" - Deletion Successful")
+    window.location.reload(true);
+  }
   
   getRoomDetails() {
     fetch("/internapp/")
@@ -94,76 +117,6 @@ export default class Capbs extends Component {
            Create a new Capability
              </Button>
       </div>
-      
-    // <TableContainer component={Paper}>
-    //      <Button color="primary" align="right" variant="contained" to="/create" component={Link}>
-    //           Create a new Capability
-    //         </Button>
-    //   <Table aria-label="simple table">
-    //     <TableHead>
-    //       <TableRow>
-    //         <TableCell>Capability ID</TableCell>
-    //         <TableCell align="left">Name</TableCell>
-    //         <TableCell align="left">Status</TableCell>
-    //         <TableCell align="center">Version</TableCell>
-    //         <TableCell>Detail</TableCell>
-    //       </TableRow>
-    //     </TableHead>
-    //     <TableBody>
-    //     {
-    //         this.state.capbs.map(
-    //             data => {
-    //                 return(
-    //                     <TableRow key={data.capbid}>
-    //                         <TableCell component="th" scope="row">
-    //                             {data.capbid}
-    //                         </TableCell>
-    //                         <TableCell align="left">{data.name}</TableCell>
-    //                         <TableCell align="left">{data.status}</TableCell>
-    //                         <TableCell align="center">{data.version.toString()}</TableCell>
-    //                         <TableCell>
-    //                             <Button color="secondary" variant="contained" to={"/detail/"+data.capbid} component={Link}>
-    //                                 Details
-    //                             </Button>
-    //                         </TableCell>
-    //                     </TableRow>
-    //                     //             <Card key={data.capbid}>
-    //                     //     <CardContent>
-    //                     //         <Typography color="textSecondary" gutterBottom>
-    //                     //             Word of the Day
-    //                     //         </Typography>
-    //                     //         <Typography variant="h5" component="h2">
-    //                     //             benevolent
-    //                     //         </Typography>
-    //                     //         <Typography color="textSecondary">
-    //                     //             adjective
-    //                     //         </Typography>
-    //                     //         <Typography variant="body2" component="p">
-    //                     //             well meaning and kindly.
-    //                     //         </Typography>
-    //                     //     </CardContent>
-    //                     //     <CardActions>
-    //                     //     <Button color="secondary" variant="contained" to={"/detail/"+data.capbid} component={Link}>
-    //                     //     </Button>
-    //                     //     </CardActions>
-    //                     // </Card>
-    //                     // <div >
-    //                     //     <h1>THIS IS HERE</h1>
-    //                     //     <h3>{data.capbid}</h3>
-    //                     //     <p>Votes: {data.name}</p>
-    //                     //     <p>Guest Can Pause: {data.status}</p>
-    //                     //     <p>Host: {data.version.toString()}</p>
-    //                     //     <Button color="secondary" variant="contained" to={"/detail/"+data.capbid} component={Link}>
-    //                     //     Details
-    //                     //     </Button>
-    //                     // </div>
-    //                 )
-    //             }
-    //         )  
-    //     }
-    //     </TableBody>
-    //   </Table>
-    // </TableContainer>
     );
   }
 }
