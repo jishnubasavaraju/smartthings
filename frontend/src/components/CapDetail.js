@@ -10,6 +10,8 @@ import { Link } from "react-router-dom";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
+import { JsonEditor as Editor } from 'jsoneditor-react';
+import 'jsoneditor-react/es/editor.min.css';
 
 
 export default class CapDetail extends Component {
@@ -223,6 +225,11 @@ export default class CapDetail extends Component {
             </FormControl>
           </Grid>
           <Grid item item xs={12} align="center">
+            <Editor>
+              value = {
+                this.state.obj
+              }
+            </Editor>
             <FormControl>
               <TextField
                 multiline

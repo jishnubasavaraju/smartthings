@@ -16,6 +16,8 @@ module.exports = {
           loader: "babel-loader",
         },
       },
+      {test: /\.css$/, loader: 'css-loader'},
+      {test: /\.svg$/, loader: 'file-loader'},
     ],
   },
   optimization: {
