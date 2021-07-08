@@ -198,7 +198,7 @@ export default class CapDetail extends Component {
                   labelPlacement="bottom"
                 />
                 <FormControlLabel
-                  value="depreciated"
+                  value="deprecated"
                   control={<Radio color="default" />}
                   label="Deprecated"
                   labelPlacement="bottom"

@@ -16,10 +16,10 @@ class CapsSerializer(mongoserializers.DocumentSerializer):
         model = Capb
         fields = '__all__'
 
-
-
 class CapsViewSet(mongoviewsets.ModelViewSet):
     serializer_class = CapsSerializer
     queryset = Capb.objects.all()
     lookup_url_kwarg = "capbid"
     lookup_field = "capbid"
+
+
